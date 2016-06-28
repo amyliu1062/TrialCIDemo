@@ -2,8 +2,8 @@ language: android
 sudo: false
 android:
   components:
-  - build-tools-23.0.1
-  - android-23
+  - build-tools-24.0.0
+  - android-24
   - extra-android-m2repository
   - extra-android-support
 script:
@@ -11,8 +11,7 @@ script:
 deploy:
   provider: releases
   api_key:
-    secure: Eh85WWErG1E5DHfiVH75Kdib7sEPtIZ4//v5gXMPmZkrpo2uaNqr03+TbMlpvyvRJXjSl2UESurbEt5CYvSve4C6gcE8PPHy6ique0x2pUDMr+jojwrExDFvpGp91Y4rPxKwbzQ9w1A/4rDglK+Hns+rc+IjNSpKEV2w20zjF6/jF378T7ChTEepYp84tToAn+OLUKesIC6ETXNrvgQt7OPPjN8txrYq09Z9l2YtWoB7ZolqdRmE+BDxyJHCv058DO4XrVPTtTEFIr96R1iIlN0oCEIt+e+QUPjzgiOvMPxFWdXQs+R6dN3F91cffwAFWBcAFucKioAUgp5qTV7l9VOpBWFDh2q+gVQ/SLLxp/xpvq4q8rTFXP6/OvwtnZRuv0LngYy4rfAUZFieocal136WpPZCXo6zo4kOAB3R6ZCma5+M7pdIY2ZD7yMRw1bwBOKLF9hhfFUKREDg1ytu69tegbdSIDYNXfpNBeXw9frkIBtUaGwacXlJZiO4i6xvDjpLdGomET548z0hD9iuGUb/U84UJCPg6kqFK8rOSap13WJlGeTy8ZLKFSuPCwGbAcntt0U6sWQY10nERvtImNKiWIqD7Exi/wWJXsPLW27b1fv4NozX0vReYNXOpMw71Moz3pNwLTOrBgeP/RS0FIqcPghnY416ZKF7JQnvFDs=
-  file: update 17:03
+    secure: QoYgcNpXMEcxLsRl4YmWCbEc8ZI40KXviFHwcgmMPQlEIpvqivcCyTkFHh9FxlmJgwtuVpBPTniIhkpuUesIxD2AQmFLzY1vqGQDtFylRmv2b0IwmRp4m7J2FAmc5kEo8kK6QBUvQNBc+9+nL7aovvHZW9wwestpFBAqlwvsS3SLFNGPiCcVh2+9ArWjt1IYOyf70mXK+XMSk/BrsQNeVb0niKKZzwttlAJrZQsBBpHCfEjwQ58Uye9Zd8zWgGapzSyCQdX/6XdEyu7OCUCE4+yESPUV6CIwN9bLEXwsG4KDduVFvCwFC/ec4rSFH/9D1xwgcxR1sxhL9oWrT3KMbExrCHuqppmRgwMbxrgNHzG4CVT21KZ2I0arQYqfcZNLOXdbryEFq26b4QnWz1M3v5EOJQVTorjhrI3/ZyddwVbGrRdfk/1dJl++H5GY/l2P+9bGnvvH/qcIC1qlsrdAyt3uLO+e6WgACQ3bJgeHJGScFF4X3YehVb3NR0jdkNxMMpuUacnRBQArjBTHA3DAgUz/kwoaV7rNsThcu+OiesYXqPA99R6HdoJ+rQIX0313dzEas8mWFiryHJrMFmVadwYJ0uBgPsHsVmrCBYvrj18F0BmMLG0A8dQIHhB0imWdED0Jcglg1RfewwCxtOoZDukh+zwXnQeRGFHMgoKUbRg=
+  file: update 17:08
   on:
-    tags: true
     repo: amyliu1062/TrialCIDemo
