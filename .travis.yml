@@ -1,23 +1,17 @@
 language: android
-
 sudo: false
-
 android:
   components:
   - build-tools-23.0.1
   - android-23
   - extra-android-m2repository
   - extra-android-support
-
 script:
-  - ./gradlew assembleRelease
-
+- ./gradlew assembleRelease
 deploy:
   provider: releases
   api_key:
-    secure: XXX
-  file: app/build/outputs/apk/app-release.apk
-  skip_cleanup: true
+    secure: xHBlwmjFPpt2fvRKcNgYt7up+EfmvBHABzsq/AwLwsOsXt9reTDbjQSChOuxKDv1O6j1zpAElfguDmhVyLAzG6903lL+TEmf1wVuN5DrNWiQyaKCFZVBE2ZB+qEx/0XvaFda+5MjnRq/cQH5l5n+QGT75pgcqzimewFJPFXSRUT7vpJLnq3x3hVSXEuOwhArj7FKhuG1SMpbxbODtMEgm9m10dIlww8ZuLiCwrGUR2T7bL1gRYSVUeAAA1FSXoVSaoYoeVreaQFXiEJzKCo2hnJTnsNmyFqjiaY7d9TWJWEryvLgCHTIhab5cRUkl3PlCdmRCjzgpYFdjis6ms/znwnT4tKqrYF5FXM9tU/nv3igxz6fS1N70K/aPHobmDzr/e1A3iwQJsRi6kHoknmHG8+7P0h15vlZ+387apY6/M44PjObE1EaA5zrfsVHZ5sMLxudm0eeFhQBBzhECTOHaCyC0nn6OWQPOkgM07Cp4ZQJUrafXW/HAdd/4FDBQZITvb4lkDaHNHnnKZYsIDtHOB3qcfFP6eS7GBNY1pQ99JOfbO5AMdfhCRrxWTRrwiyJAfxl2iGIa1q1cguEdJB9zjqw2j3RL0x/y6zLmv4eyLwlPg2y7mRmfXck97att4zPQOQL358KTwtpkhWrn6ufqlAS0CBHFaLVW2AeMYDjOKA=
+  file: ''
   on:
-    tags: true
-    all_branches: true
+    repo: amyliu1062/TrialCIDemo
