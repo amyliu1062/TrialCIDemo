@@ -13,7 +13,7 @@ android {
     }
 
     signingConfigs {
-        releaseConfig {
+        release {
             storeFile file("../android.jks")
             storePassword "123456"
             keyAlias "android_alias"
@@ -22,10 +22,10 @@ android {
     }
 
     buildTypes {
-        releaseConfig {
+        release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.releaseConfig
+            signingConfig signingConfigs.release
         }
     }
 }
