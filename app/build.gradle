@@ -1,15 +1,26 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'jacoco-android'
 
 android {
-    compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.liudan.trialci"
         minSdkVersion 9
-        targetSdkVersion 24
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
@@ -21,8 +32,14 @@ android {
         }
     }
 
+    productFlavors {
+        free {}
+        paid {}
+    }
+
     buildTypes {
         release {
+            testCoverageEnabled true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
@@ -30,9 +47,28 @@ android {
     }
 }
 
+jacocoAndroidUnitTestReport {
+    csv.enabled false
+    html.enabled true
+    xml.enabled false
+    excludes += ['**/AutoValue_*.*',
+                 '**/*JavascriptBridge.class']
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:24.0.0'
-    compile 'com.android.support:design:24.0.0'
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:design:23.0.1'
+
+    // TEST
+    testCompile 'com.android.support.test:runner:0.4.1'
+    testCompile 'com.android.support.test:rules:0.4.1'
+    testCompile 'com.android.support.test.espresso:espresso-core:2.2.1'
+
+    androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
+    androidTestCompile 'junit:junit:4.12'
+    androidTestCompile 'org.easymock:easymock:3.4'
+    androidTestCompile 'com.google.dexmaker:dexmaker:1.1'
+
 }
