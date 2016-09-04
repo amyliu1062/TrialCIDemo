@@ -1,23 +1,17 @@
 language: android
-jdk: oraclejdk8
-env:
-  global:
-    - ANDROID_TARGET=android-15
-    - ANDROID_ABI=armeabi-v7a
+sudo: false
 android:
   components:
-  - tools
-  - platform-tools
-  - build-tools-23.3.0
-  - android-23
+  - build-tools-24.0.0
+  - android-24
   - extra-android-m2repository
-  - sys-img-${ANDROID_ABI}-${ANDROID_TARGET}
+  - extra-android-support
 script:
-  - ./gradlew build jacocoTestReport assembleAndroidTest
-  - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb shell setprop dalvik.vm.dexopt-flags v=n,o=v
-  - ./gradlew connectedCheck
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- ./gradlew assembleRelease
+deploy:
+  provider: releases
+  api_key:
+    secure: DnyCFphou/S33aL3/Aw8Qlq5rO+W/jtzY7T/3yXD7xHABaRUHxMoF01l9gcSkHS5DmusELxTrUSQs6W8fPt8glFBNvQemTf2prfciJXJJmuh599AFQPS6lvWaf/klIpYfSCGKT9toQqMyFXTRA15x+cwcEW5t6gxvwJHRGls/Cqz8TZ7G9Je6TKmm4mIXwgIpVviqLyFbohJSBoN2BE+p99ugpg7OvpwTK1OKFuZ6MCAzDUKxlJfcAKCXlHaQFPV+1+lsNrqq5reHaOmcdoVIIRUJwEautPuqydo+jWmwvRf1WJwbVEjUg4qWDC1u+FeK4hO3RzVrE0ej49MtxEDBGOGZMdutxiOKlcAAki4JI5zYLwDNxGx4vVRFI6Dfo+YfZDnAt/RTVPlSFaXBqVCzrTEnCOi4A9qcOD/yxyDHw1FzuLoHU3u8dUeyiW/wOMv+Ffb0Lv7Hhj595jDV0zhxPxPS3gQWiX7UFQnqiU6IGfvcrWQKnTfbex3qI3gvvf2mz+ClbS/594Q5IZRJuZcH3aBXfnmrr0kodgh0nZZCjMynrci5iGdN40JvjJkp7PylQE6A3QQcCFql9ym5yWYNk/1snnDl+ExgZOQWBV6NRGEQuW7mnppx8cLmbt34lXxTxoH0gsbKPbtefaDzFWpKqyy/AYvnITa/bDyCgEAGdo=
+  file: '58'
+  on:
+    repo: amyliu1062/TrialCIDemo
